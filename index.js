@@ -83,8 +83,7 @@ app.get('/summary/', async (req, res) => {
   var sql = "SELECT *,SUM(vacancies) as total_vacancies FROM historical.ads2 WHERE " + sqlFilter.join(" AND ")+" group by skill order by total_vacancies DESC LIMIT 10";
   console.log(sqlFilterValues)
   sql = mysql.format(sql, sqlFilterValues);
-  console.log(sql)
-
+ 
 
 
 
@@ -134,10 +133,9 @@ app.get('/list/', async (req, res) => {
 
 
   var sql = "SELECT *,SUM(vacancies) as total_vacancies FROM historical.ads2 WHERE " + sqlFilter.join(" AND ")+" group by skill order by total_vacancies DESC LIMIT 10";
-  console.log(sqlFilter);
-  console.log(sqlFilterValues)
+
   sql = mysql.format(sql, sqlFilterValues);
-  console.log(sql)
+
 
 
 
@@ -161,6 +159,6 @@ app.get('/list/', async (req, res) => {
 });
 
 // starting the server
-app.listen(3001, () => {
-  console.log('listening on port 3001');
+app.listen(3005, () => {
+  console.log('listening on port 3005');
 });
