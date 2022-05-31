@@ -80,7 +80,7 @@ app.get('/summary/', async (req, res) => {
 
 
 
-  var sql = "SELECT *,SUM(vacancies) as total_vacancies FROM historical.ads2 WHERE " + sqlFilter.join(" AND ")+" group by skill order by total_vacancies DESC LIMIT 10";
+  var sql = "SELECT skill,SUM(vacancies) as total_vacancies FROM historical.ads2 WHERE " + sqlFilter.join(" AND ")+" group by skill order by total_vacancies DESC LIMIT 10";
   console.log(sqlFilterValues)
   sql = mysql.format(sql, sqlFilterValues);
  
@@ -132,7 +132,7 @@ app.get('/list/', async (req, res) => {
 
 
 
-  var sql = "SELECT *,SUM(vacancies) as total_vacancies FROM historical.ads2 WHERE " + sqlFilter.join(" AND ")+" group by skill order by total_vacancies DESC LIMIT 10";
+  var sql = "SELECT skill,SUM(vacancies) as total_vacancies FROM db_historicalskills.db_historicalskills WHERE " + sqlFilter.join(" AND ")+" group by skill order by total_vacancies DESC LIMIT 10";
 
   sql = mysql.format(sql, sqlFilterValues);
 
